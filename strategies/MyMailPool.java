@@ -73,7 +73,7 @@ public class MyMailPool implements IMailPool {
 		StorageTube tube = robot.getTube();
 		StorageTube temp = new StorageTube();
 		try { // Get as many items as available or as fit
-				if (robot.isStrong()) {
+				if (robot.whatType()=="strong") {
 					while(temp.getSize() < MAX_TAKE && !pool.isEmpty() ) {
 						Item item = pool.remove();
 						if (!item.heavy) lightCount--;
@@ -102,7 +102,7 @@ public class MyMailPool implements IMailPool {
 
 	@Override
 	public void registerWaiting(Robot robot) { // assumes won't be there
-		if (robot.isStrong()) {
+		if (robot.whatType()=="strong") {
 			robots.add(robot); 
 		} else {
 			robots.addLast(robot); // weak robot last as want more efficient delivery with highest priorities

@@ -22,7 +22,7 @@ public class Robot {
     private int destination_floor;
     private IMailPool mailPool;
     private boolean receivedDispatch;
-    private boolean strong;
+    private String robotType;
     
     private MailItem deliveryItem;
     
@@ -37,7 +37,7 @@ public class Robot {
      * @param mailPool is the source of mail items
      * @param strong is whether the robot can carry heavy items
      */
-    public Robot(IMailDelivery delivery, IMailPool mailPool, boolean strong){
+    public Robot(IMailDelivery delivery, IMailPool mailPool, String robotType){
     	id = "R" + hashCode();
         // current_state = RobotState.WAITING;
     	current_state = RobotState.RETURNING;
@@ -46,7 +46,7 @@ public class Robot {
         this.delivery = delivery;
         this.mailPool = mailPool;
         this.receivedDispatch = false;
-        this.strong = strong;
+        this.robotType = robotType;
         this.deliveryCounter = 0;
     }
     
@@ -54,8 +54,8 @@ public class Robot {
     	receivedDispatch = true;
     }
     
-    public boolean isStrong() {
-    	return strong;
+    public String whatType() {
+    	return robotType;
     }
 
     /**
@@ -122,7 +122,7 @@ public class Robot {
     private void setRoute() throws ItemTooHeavyException{
         /** Pop the item from the StorageUnit */
         deliveryItem = tube.pop();
-        if (!strong && deliveryItem.weight > 2000) throw new ItemTooHeavyException(); 
+        if (robotType == "weak" && deliveryItem.weight > 2000) throw new ItemTooHeavyException(); 
         /** Set the destination floor */
         destination_floor = deliveryItem.getDestFloor();
     }

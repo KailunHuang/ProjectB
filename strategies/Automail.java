@@ -16,8 +16,8 @@ public class Automail {
     	this.mailPool = mailPool;
     	
         /** Initialize the RobotAction */
-    	boolean weak = false;  // Can't handle more than 2000 grams
-    	boolean strong = true; // Can handle any weight that arrives at the building
+    	String weak = "weak";  // Can't handle more than 2000 grams
+    	String strong = "strong"; // Can handle any weight that arrives at the building
     	
     	/** Initialize robots */
     	robot = new Robot[3];
