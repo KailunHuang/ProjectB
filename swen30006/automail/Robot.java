@@ -2,6 +2,7 @@ package automail;
 
 import exceptions.ExcessiveDeliveryException;
 import exceptions.ItemTooHeavyException;
+import exceptions.TubeFullException;
 import exceptions.FragileItemBrokenException;
 import strategies.IMailPool;
 import strategies.MyMailPool.Item;
@@ -53,7 +54,7 @@ public abstract class Robot {
         this.type=type;
     }
     
-    public abstract void fillStorageTube(LinkedList<Item> pool,LinkedList<Item> fragilePool,int lightCount);
+    public abstract void fillStorageTube(LinkedList<Item> pool,LinkedList<Item> fragilePool,int lightCount) throws FragileItemBrokenException, TubeFullException;
     
     public void dispatch() {
     	receivedDispatch = true;
@@ -128,11 +129,14 @@ public abstract class Robot {
         destination_floor = deliveryItem.getDestFloor();
     }
 
+    
+    	// Modified on 14th Sep, 2018 **********************
+ 	// Changed into protected!!! ***********************
     /**
      * Generic function that moves the robot towards the destination
      * @param destination the floor towards which the robot is moving
      */
-    private void moveTowards(int destination) throws FragileItemBrokenException {
+    protected void moveTowards(int destination) throws FragileItemBrokenException {
         if (type!=Simulation.RobotType.Careful && (deliveryItem != null && deliveryItem.getFragile() || !tube.isEmpty() && tube.peek().getFragile())) throw new FragileItemBrokenException();
         if(current_floor < destination){
             current_floor++;

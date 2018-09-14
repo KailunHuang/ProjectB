@@ -3,6 +3,7 @@ package automail;
 import exceptions.ExcessiveDeliveryException;
 import exceptions.ItemTooHeavyException;
 import exceptions.MailAlreadyDeliveredException;
+import exceptions.TubeFullException;
 import exceptions.FragileItemBrokenException;
 import strategies.Automail;
 import strategies.IMailPool;
@@ -31,7 +32,7 @@ public class Simulation {
     private static ArrayList<MailItem> MAIL_DELIVERED;
     private static double total_score = 0;
 
-    public static void main(String[] args) throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, TubeFullException {
     	Properties automailProperties = new Properties();
 		// Default properties
     	// automailProperties.setProperty("Robots", "Big,Careful,Standard,Weak");

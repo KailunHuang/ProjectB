@@ -7,6 +7,7 @@ import automail.PriorityMailItem;
 import automail.Robot;
 import automail.Simulation;
 import exceptions.FragileItemBrokenException;
+import exceptions.TubeFullException;
 
 public class MyMailPool implements IMailPool {
 	// Property fragile has been added to item class and it's been set to public so that robot class can use it
@@ -25,6 +26,13 @@ public class MyMailPool implements IMailPool {
 			destination = mailItem.getDestFloor();
 			this.mailItem = mailItem;
 		}
+		
+		// Added on 14th Sep, 2018 *************
+		// Changed into protected!!! *****************
+		public MailItem getMailItem(){
+			return this.mailItem;
+		}
+
 	}
 	
 	public class ItemComparator implements Comparator<Item> {
@@ -70,11 +78,11 @@ public class MyMailPool implements IMailPool {
 	}
 	
 	@Override
-	public void step() throws FragileItemBrokenException {
+	public void step() throws FragileItemBrokenException, TubeFullException {
 		for (Robot robot: (Iterable<Robot>) robots::iterator) { fillStorageTube(robot); }
 	}
 	
-	private void fillStorageTube(Robot robot) throws FragileItemBrokenException {
+	private void fillStorageTube(Robot robot) throws FragileItemBrokenException, TubeFullException {
 		robot.fillStorageTube(pool, fragilePool,lightCount);
 	}
 
