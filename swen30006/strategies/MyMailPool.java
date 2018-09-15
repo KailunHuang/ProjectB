@@ -32,6 +32,11 @@ public class MyMailPool implements IMailPool {
 		public MailItem getMailItem(){
 			return this.mailItem;
 		}
+		
+		public boolean getHeavy() {
+			return heavy;
+		}
+
 
 	}
 	
