@@ -60,6 +60,14 @@ public class StorageTube {
             throw new TubeFullException();
         }
     }
+    
+    public void addFragileItem(MailItem item) throws TubeFullException{
+    	if(tube.size() < MAXIMUM_CAPACITY) {
+    		tube.add(item);
+    	}else{
+    		throw new TubeFullException();	
+    	}
+    }
 
     /** @return the size of the tube **/
     public int getSize(){

@@ -27,10 +27,12 @@ public class CarefulRobot extends Robot {
 	
 	// Modified on 14th Sep, 2018 *************
 	// Changed into protected!!! *****************
+	/*
 	@Override
 	protected void moveTowards(int destination) throws FragileItemBrokenException {
         if (deliveryItem != null && deliveryItem.getFragile() || !tube.isEmpty() && tube.peek().getFragile()) throw new FragileItemBrokenException();
-        if (move) {
+        
+		if (move) {
 	        if(current_floor < destination){
 	            current_floor++;
 	        }
@@ -43,9 +45,12 @@ public class CarefulRobot extends Robot {
         else {
             move = true;
         }
+        
+		
+		
     }
 	// *************************************
-	
+	*/
 	
 
 	public void fillStorageTube(LinkedList<Item> pool,LinkedList<Item> fragilePool,int lightCount) throws FragileItemBrokenException, TubeFullException {
@@ -63,5 +68,23 @@ public class CarefulRobot extends Robot {
 				tube.addItem(pool.poll().getMailItem());
 			}
 		}
+		
+		
+		/*
+		StorageTube tube = super.getTube();
+		StorageTube temp = new StorageTube(MAX_TAKE);
+		
+		
+		while (temp.getSize() < MAX_TAKE && !fragilePool.isEmpty() ) {
+			Item item = fragilePool.remove();
+			temp.addFragileItem(item.getMailItem());
+		}
+		
+		
+		if (temp.getSize() > 0) {
+			while (!temp.isEmpty()) tube.addFragileItem(temp.pop()); 
+			super.dispatch();
+		}
+		*/
 	}
 }
