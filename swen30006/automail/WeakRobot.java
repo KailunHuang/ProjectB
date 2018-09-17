@@ -25,7 +25,7 @@ public class WeakRobot extends Robot {
 		
 		ListIterator<Item> i = pool.listIterator();
 		
-		while(temp.getSize() < MAX_TAKE && !pool.isEmpty() && lightCount > 0) {
+		while(temp.getSize() < MAX_TAKE && !pool.isEmpty() && lightCount > 0 && i.hasNext()) {
 			Item item = i.next();
 			if (!item.getHeavy()) {
 				temp.addItem(item.getMailItem());

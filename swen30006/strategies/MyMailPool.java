@@ -67,6 +67,7 @@ public class MyMailPool implements IMailPool {
 	public MyMailPool(){
 		// Start empty
 		pool = new LinkedList<Item>();
+		fragilePool = new LinkedList<Item>();
 		lightCount = 0;
 		robots = new LinkedList<Robot>();
 	}

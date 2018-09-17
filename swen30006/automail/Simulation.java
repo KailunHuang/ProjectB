@@ -39,7 +39,7 @@ public class Simulation {
     	automailProperties.setProperty("Robots", "Standard");
     	automailProperties.setProperty("MailPool", "strategies.SimpleMailPool");
     	automailProperties.setProperty("Floors", "10");
-    	automailProperties.setProperty("Fragile", "false");
+    	automailProperties.setProperty("Fragile", "true");
     	automailProperties.setProperty("Mail_to_Create", "80");
     	automailProperties.setProperty("Last_Delivery_Time", "100");
 
@@ -74,7 +74,7 @@ public class Simulation {
 		String robotsProp = automailProperties.getProperty("Robots");
 		List<RobotType> robotTypes = Stream.of(robotsProp.split(",")).map(RobotType::valueOf).collect(Collectors.toList());
 		System.out.print("Robots: "); System.out.println(robotTypes);
-
+		
 		// End properties
 		
         MAIL_DELIVERED = new ArrayList<MailItem>();
