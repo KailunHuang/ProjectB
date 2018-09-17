@@ -13,7 +13,6 @@ public class CarefulRobot extends Robot {
 	
 	// Added on 14th Sep, 2018 *************
 	private MailItem deliveryItem;
-	private int current_floor;
 	private StorageTube tube;
 	private boolean move = false;
 	// *************************************
@@ -33,11 +32,10 @@ public class CarefulRobot extends Robot {
 	protected void moveTowards(int destination) throws FragileItemBrokenException {
         
 		if (move) {
-	        if(current_floor < destination){
-	            current_floor++;
-	        }
-	        else{
-	            current_floor--;
+	        if(super.current_floor < destination){
+	            super.current_floor++;
+	        }else {
+	        	super.current_floor--;
 	        }
 	        move=false;
         }
@@ -45,7 +43,7 @@ public class CarefulRobot extends Robot {
         else {
             move = true;
         }
-        		
+
     }
 	// *************************************
 	
@@ -56,20 +54,6 @@ public class CarefulRobot extends Robot {
 		// ****************************************
 		// Sometimes throws null exception! That's why I added tube != null
 		
-		
-		/*
-		if (tube != null && tube.getSize() < MAX_TAKE) {
-			
-			// If fragile pool isn't empty: grab a fragile item
-			if (!fragilePool.isEmpty()) {
-				tube.addItem(fragilePool.poll().getMailItem());
-			}
-			// If pool isn't empty and tube is not full yet: grab items until tube is filled.
-			while (!pool.isEmpty() && tube.getSize() < MAX_TAKE) {
-				tube.addItem(pool.poll().getMailItem());
-			}
-		}
-		*/
 		
 		
 		StorageTube tube = super.getTube();

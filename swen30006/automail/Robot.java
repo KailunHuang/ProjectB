@@ -23,7 +23,7 @@ public abstract class Robot {
     public enum RobotState { DELIVERING, WAITING, RETURNING }
     public RobotState current_state;
     private Simulation.RobotType type;
-    private int current_floor;
+    protected int current_floor;
     private int destination_floor;
     private IMailPool mailPool;
     private boolean receivedDispatch;
@@ -31,7 +31,7 @@ public abstract class Robot {
     
     private MailItem deliveryItem;
     
-    private int deliveryCounter;
+    protected int deliveryCounter;
     
 
     /**
@@ -95,6 +95,7 @@ public abstract class Robot {
                 }
                 break;
     		case DELIVERING:
+    			
     			if(current_floor == destination_floor){ // If already here drop off either way
                     /** Delivery complete, report this to the simulator! */
                     delivery.deliver(deliveryItem);
@@ -103,6 +104,7 @@ public abstract class Robot {
                     	throw new ExcessiveDeliveryException();
                     }
                     /** Check if want to return, i.e. if there are no more items in the tube*/
+                    //System.out.println("tubeEmpty "+tube.isEmpty());
                     if(tube.isEmpty()){
                     	changeState(RobotState.RETURNING);
                     }
@@ -131,7 +133,7 @@ public abstract class Robot {
     }
 
     
-    	// Modified on 14th Sep, 2018 **********************
+    // Modified on 14th Sep, 2018 **********************
  	// Changed into protected!!! ***********************
     /**
      * Generic function that moves the robot towards the destination
@@ -159,7 +161,6 @@ public abstract class Robot {
     	if (current_state != nextState) {
             System.out.printf("T: %3d > %7s changed from %s to %s%n", Clock.Time(), getIdTube(), current_state, nextState);
             
-            System.out.println(id+" "+type);
     	}
     	current_state = nextState;
     	if(nextState == RobotState.DELIVERING){
