@@ -157,6 +157,8 @@ public abstract class Robot {
     private void changeState(RobotState nextState){
     	if (current_state != nextState) {
             System.out.printf("T: %3d > %7s changed from %s to %s%n", Clock.Time(), getIdTube(), current_state, nextState);
+            
+            System.out.println(id+" "+type);
     	}
     	current_state = nextState;
     	if(nextState == RobotState.DELIVERING){

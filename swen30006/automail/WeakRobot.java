@@ -14,6 +14,7 @@ public class WeakRobot extends Robot {
 
 	public WeakRobot(IMailDelivery delivery, IMailPool mailPool) {
 		super(delivery, mailPool, Simulation.RobotType.Weak);
+		
 	}
 	
 	public void fillStorageTube(LinkedList<Item> pool,LinkedList<Item> fragilePool,int lightCount) 
@@ -25,7 +26,6 @@ public class WeakRobot extends Robot {
 		ListIterator<Item> i = pool.listIterator();
 		
 		while(temp.getSize() < MAX_TAKE && !pool.isEmpty() && lightCount > 0) {
-			
 			Item item = i.next();
 			if (!item.getHeavy()) {
 				temp.addItem(item.getMailItem());
