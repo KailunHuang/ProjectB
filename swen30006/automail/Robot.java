@@ -27,6 +27,7 @@ public abstract class Robot {
     private int destination_floor;
     private IMailPool mailPool;
     private boolean receivedDispatch;
+    protected int max_cap = 4;
     
     private MailItem deliveryItem;
     
@@ -46,7 +47,7 @@ public abstract class Robot {
         // current_state = RobotState.WAITING;
     	current_state = RobotState.RETURNING;
         current_floor = Building.MAILROOM_LOCATION;
-        tube = new StorageTube();
+        tube = new StorageTube(max_cap);
         this.delivery = delivery;
         this.mailPool = mailPool;
         this.receivedDispatch = false;
@@ -98,7 +99,7 @@ public abstract class Robot {
                     /** Delivery complete, report this to the simulator! */
                     delivery.deliver(deliveryItem);
                     deliveryCounter++;
-                    if(deliveryCounter > 4){  // Implies a simulation bug
+                    if(deliveryCounter > max_cap){  // Implies a simulation bug
                     	throw new ExcessiveDeliveryException();
                     }
                     /** Check if want to return, i.e. if there are no more items in the tube*/
@@ -170,6 +171,10 @@ public abstract class Robot {
 		return tube;
 	}
     
+	public void setTube() {
+		this.tube = new StorageTube(max_cap);
+	}
+	
 	public Simulation.RobotType getType() {
 		return type;
 	}

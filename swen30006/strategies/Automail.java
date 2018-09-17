@@ -29,12 +29,16 @@ public class Automail {
     		switch(type) {
     		case Big:
     			robots.add(new BigRobot(delivery,mailPool));
+    			break;
     		case Careful:
     			robots.add(new CarefulRobot(delivery,mailPool));
+    			break;
     		case Standard:
     			robots.add(new StandardRobot(delivery,mailPool));
+    			break;
     		case Weak:
     			robots.add(new WeakRobot(delivery,mailPool));
+    			break;
     		}
     	}
     }

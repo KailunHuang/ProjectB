@@ -20,6 +20,8 @@ public class CarefulRobot extends Robot {
 
 	public CarefulRobot(IMailDelivery delivery, IMailPool mailPool) {
 		super(delivery, mailPool, Simulation.RobotType.Careful);
+		super.max_cap = MAX_TAKE;
+		super.setTube();
 	}
 	
 	

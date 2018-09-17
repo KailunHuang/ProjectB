@@ -10,16 +10,16 @@ import strategies.MyMailPool.Item;
 
 public class StandardRobot extends Robot {
 	private final int MAX_TAKE=4;
-	private final static Simulation.RobotType robotT = Simulation.RobotType.Standard;
+	
 	public StandardRobot(IMailDelivery delivery, IMailPool mailPool) {
-		super(delivery, mailPool, robotT);
+		super(delivery, mailPool, Simulation.RobotType.Standard);
 	}
 	
 	public void fillStorageTube(LinkedList<Item> pool,LinkedList<Item> fragilePool,int lightCount) 
 			throws TubeFullException, FragileItemBrokenException{
 		
 		StorageTube tube = super.getTube();
-		StorageTube temp = new StorageTube();
+		StorageTube temp = new StorageTube(MAX_TAKE);
 		
 		
 		while (temp.getSize() < MAX_TAKE && !pool.isEmpty() ) {

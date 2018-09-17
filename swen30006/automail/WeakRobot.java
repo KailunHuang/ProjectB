@@ -21,7 +21,7 @@ public class WeakRobot extends Robot {
 			throws TubeFullException, FragileItemBrokenException {
 		
 		StorageTube tube = super.getTube();
-		StorageTube temp = new StorageTube();
+		StorageTube temp = new StorageTube(MAX_TAKE);
 		
 		ListIterator<Item> i = pool.listIterator();
 		
