@@ -1,6 +1,10 @@
 package automail;
 
 import java.util.LinkedList;
+/*GROUP 31
+Kailun Huang
+Weijia Wang
+Shizhan Xu*/
 
 import automail.Simulation.RobotType;
 import exceptions.FragileItemBrokenException;

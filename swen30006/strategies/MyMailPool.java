@@ -9,6 +9,11 @@ import automail.Simulation;
 import exceptions.FragileItemBrokenException;
 import exceptions.TubeFullException;
 
+/*GROUP 31
+Kailun Huang
+Weijia Wang
+Shizhan Xu*/
+
 public class MyMailPool implements IMailPool {
 	
 	// Property fragile has been added to item class and it's been set to public so that robot class can use it

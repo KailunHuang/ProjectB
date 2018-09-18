@@ -8,6 +8,14 @@ import exceptions.TubeFullException;
 import strategies.IMailPool;
 import strategies.MyMailPool.Item;
 
+/**
+ * 
+ * @GROUP 31
+Kailun Huang
+Weijia Wang
+Shizhan Xu
+ *
+ */
 public class CarefulRobot extends Robot implements AddFragileMail{
 	private final int MAX_TAKE=3;
 	

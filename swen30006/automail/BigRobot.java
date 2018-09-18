@@ -8,6 +8,10 @@ import exceptions.TubeFullException;
 import strategies.IMailPool;
 import strategies.MyMailPool.Item;
 
+/*GROUP 31
+Kailun Huang
+Weijia Wang
+Shizhan Xu*/
 public class BigRobot extends Robot{
 	
 	private final int MAX_TAKE=6;	

@@ -11,6 +11,11 @@ import automail.Simulation;
 import automail.StandardRobot;
 import automail.WeakRobot;
 
+/*GROUP 31
+Kailun Huang
+Weijia Wang
+Shizhan Xu*/
+
 public class Automail {
 	      
     public ArrayList<Robot> robots;

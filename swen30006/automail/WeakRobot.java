@@ -9,6 +9,14 @@ import exceptions.TubeFullException;
 import strategies.IMailPool;
 import strategies.MyMailPool.Item;
 
+/**
+ * 
+ * @GROUP 31
+Kailun Huang
+Weijia Wang
+Shizhan Xu
+ *
+ */
 public class WeakRobot extends Robot implements AddLightMail{
 	private final int MAX_TAKE=4;
 	
