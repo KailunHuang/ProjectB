@@ -28,8 +28,6 @@ public class MyMailPool implements IMailPool {
 			this.mailItem = mailItem;
 		}
 		
-		// Added on 14th Sep, 2018 *************
-		// Changed into protected!!! *****************
 		public MailItem getMailItem(){
 			return this.mailItem;
 		}
