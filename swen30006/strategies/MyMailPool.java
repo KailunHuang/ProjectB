@@ -10,6 +10,7 @@ import exceptions.FragileItemBrokenException;
 import exceptions.TubeFullException;
 
 public class MyMailPool implements IMailPool {
+	
 	// Property fragile has been added to item class and it's been set to public so that robot class can use it
 	public class Item {
 		int priority;
@@ -36,8 +37,6 @@ public class MyMailPool implements IMailPool {
 		public boolean getHeavy() {
 			return heavy;
 		}
-
-
 	}
 	
 	public class ItemComparator implements Comparator<Item> {

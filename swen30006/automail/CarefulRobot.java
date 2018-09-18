@@ -11,9 +11,9 @@ import strategies.MyMailPool.Item;
 public class CarefulRobot extends Robot implements AddFragileMail{
 	private final int MAX_TAKE=3;
 	
-	// Added on 14th Sep, 2018 *************
+	
 	private boolean move = false;
-	// *************************************
+	
 
 	public CarefulRobot(IMailDelivery delivery, IMailPool mailPool) {
 		super(delivery, mailPool, Simulation.RobotType.Careful);
@@ -21,9 +21,6 @@ public class CarefulRobot extends Robot implements AddFragileMail{
 		super.setTube();
 	}
 	
-	
-	// Modified on 14th Sep, 2018 *************
-	// Changed into protected!!! *****************
 	
 	
 	@Override
@@ -42,11 +39,9 @@ public class CarefulRobot extends Robot implements AddFragileMail{
             move = true;
         }
 
-    }
-	// *************************************
+    }	
 	
-	
-
+	@Override
 	public void fillStorageTube(LinkedList<Item> pool,LinkedList<Item> fragilePool,int lightCount) throws FragileItemBrokenException, TubeFullException {
 		
 		
@@ -71,6 +66,7 @@ public class CarefulRobot extends Robot implements AddFragileMail{
 		
 	}
 	
+	@Override
 	public void addFragileMail(LinkedList<Item> fragilePool,StorageTube temp, int MAX_TAKE) throws TubeFullException {
 		if (temp.isEmpty() && !fragilePool.isEmpty() ) {
 			Item item = fragilePool.remove();

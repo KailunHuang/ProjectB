@@ -33,6 +33,7 @@ public class WeakRobot extends Robot implements AddLightMail{
 		}
 	}
 	
+	@Override
 	public void addLightMail(StorageTube temp, LinkedList<Item> pool,int max_take, int lightCount) 
 			throws TubeFullException, FragileItemBrokenException {
 		ListIterator<Item> i = pool.listIterator();
