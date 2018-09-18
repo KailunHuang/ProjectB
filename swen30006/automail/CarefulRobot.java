@@ -12,8 +12,6 @@ public class CarefulRobot extends Robot implements AddFragileMail{
 	private final int MAX_TAKE=3;
 	
 	// Added on 14th Sep, 2018 *************
-	private MailItem deliveryItem;
-	private StorageTube tube;
 	private boolean move = false;
 	// *************************************
 
