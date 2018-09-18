@@ -55,8 +55,10 @@ public class MyMailPool implements IMailPool {
 	}
 	
 	// pool and fragilePool are package privacy now since Robot is going to manipulate on them
+	
 	LinkedList<Item> pool;
 	LinkedList<Item> fragilePool;
+	
 	// MAX_TAKE removed and becomes an attribute of robot subclasses
 	private LinkedList<Robot> robots;
 	private int lightCount;

@@ -52,6 +52,8 @@ public class StorageTube {
         	if (tube.isEmpty()) {
         		tube.add(item);
         	//} else if (item.getFragile() || tube.peek().getFragile()) {
+        	//we don't need to check if the first item is fragile because 
+        	//the fragile mail has its own addItem method which is addAllItem. 
         	} else if (item.getFragile()) {
         		throw new FragileItemBrokenException();
         	} else {
@@ -66,7 +68,7 @@ public class StorageTube {
     //add item into careful item, we don't need to consider FrafileItemBrokenException
     //and the controller of if the careful robot already consists a fragile mail is built in the 
     //Robot class
-    public void addAllItem(MailItem item) throws TubeFullException{
+    public void addFragileItem(MailItem item) throws TubeFullException{
     	if(tube.size() < MAXIMUM_CAPACITY) {
     		tube.add(item);
     	}else{
