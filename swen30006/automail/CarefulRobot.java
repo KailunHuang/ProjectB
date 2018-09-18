@@ -8,7 +8,7 @@ import exceptions.TubeFullException;
 import strategies.IMailPool;
 import strategies.MyMailPool.Item;
 
-public class CarefulRobot extends Robot {
+public class CarefulRobot extends Robot implements AddFragileMail{
 	private final int MAX_TAKE=3;
 	
 	// Added on 14th Sep, 2018 *************
@@ -51,19 +51,15 @@ public class CarefulRobot extends Robot {
 
 	public void fillStorageTube(LinkedList<Item> pool,LinkedList<Item> fragilePool,int lightCount) throws FragileItemBrokenException, TubeFullException {
 		
-		// ****************************************
-		// Sometimes throws null exception! That's why I added tube != null
-		
 		
 		
 		StorageTube tube = super.getTube();
 		StorageTube temp = new StorageTube(MAX_TAKE);
 		
-		if (temp.getSize() < MAX_TAKE && !fragilePool.isEmpty() ) {
-			Item item = fragilePool.remove();
-			temp.addFragileItem(item.getMailItem());
-		}
+		//if there are some fragile mails, we put one fragile mail into the tube
+		addFragileMail(fragilePool, temp, MAX_TAKE);
 		
+		//the fill the tube with other normal mails
 		while(temp.getSize() < MAX_TAKE && !pool.isEmpty()) {
 			Item item = pool.remove();
 			if (!item.getHeavy()) lightCount--;
@@ -75,5 +71,12 @@ public class CarefulRobot extends Robot {
 			super.dispatch();
 		}
 		
+	}
+	
+	public void addFragileMail(LinkedList<Item> fragilePool,StorageTube temp, int MAX_TAKE) throws TubeFullException {
+		if (temp.isEmpty() && !fragilePool.isEmpty() ) {
+			Item item = fragilePool.remove();
+			temp.addFragileItem(item.getMailItem());
+		}
 	}
 }

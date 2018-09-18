@@ -62,6 +62,9 @@ public class StorageTube {
         }
     }
     
+    //add item into careful item, we don't need to consider FrafileItemBrokenException
+    //and the controller of if the careful robot already consists a fragile mail is built in the 
+    //Robot class
     public void addFragileItem(MailItem item) throws TubeFullException{
     	if(tube.size() < MAXIMUM_CAPACITY) {
     		tube.add(item);
