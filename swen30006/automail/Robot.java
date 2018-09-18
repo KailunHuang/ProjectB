@@ -133,8 +133,6 @@ public abstract class Robot {
     }
 
     
-    // Modified on 14th Sep, 2018 **********************
- 	// Changed into protected!!! ***********************
     /**
      * Generic function that moves the robot towards the destination
      * @param destination the floor towards which the robot is moving

@@ -60,7 +60,7 @@ public class CarefulRobot extends Robot implements AddFragileMail{
 		}		
 		
 		if (temp.getSize() > 0) {
-			while (!temp.isEmpty()) tube.addFragileItem(temp.pop()); 
+			while (!temp.isEmpty()) tube.addAllItem(temp.pop()); 
 			super.dispatch();
 		}
 		
@@ -70,7 +70,7 @@ public class CarefulRobot extends Robot implements AddFragileMail{
 	public void addFragileMail(LinkedList<Item> fragilePool,StorageTube temp, int MAX_TAKE) throws TubeFullException {
 		if (temp.isEmpty() && !fragilePool.isEmpty() ) {
 			Item item = fragilePool.remove();
-			temp.addFragileItem(item.getMailItem());
+			temp.addAllItem(item.getMailItem());
 		}
 	}
 }
