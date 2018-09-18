@@ -25,7 +25,7 @@ public class WeakRobot extends Robot implements AddLightMail{
 		StorageTube tube = super.getTube();
 		StorageTube temp = new StorageTube(MAX_TAKE);
 		
-		addLightMail(temp, pool, MAX_TAKE, lightCount);
+		addLightMail(temp, pool, lightCount);
 		
 		if(temp.getSize() > 0) {
 			while(!temp.isEmpty()) tube.addItem(temp.pop());
@@ -34,7 +34,7 @@ public class WeakRobot extends Robot implements AddLightMail{
 	}
 	
 	@Override
-	public void addLightMail(StorageTube temp, LinkedList<Item> pool,int max_take, int lightCount) 
+	public void addLightMail(StorageTube temp, LinkedList<Item> pool, int lightCount) 
 			throws TubeFullException, FragileItemBrokenException {
 		ListIterator<Item> i = pool.listIterator();
 		//Iterate the mailpool if there are light mail in the mailpool and add it to the weakRobot's tube

@@ -8,7 +8,7 @@ import strategies.MyMailPool.Item;
 
 public interface AddLightMail {
 	
-	void addLightMail(StorageTube temp, LinkedList<Item> pool,int max_take, int lightCount) 
+	void addLightMail(StorageTube temp, LinkedList<Item> pool, int lightCount) 
 			throws TubeFullException, FragileItemBrokenException;
 
 }
